@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import Home from '../src/Pages/Home';
 import CreatePost from './Pages/CreatePost';
 import NavBar from './Components/NavBar';
 import Post from './Pages/Post';
+import Filler from './Components/Filler';
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                     <Route path="/criarpost" element={<CreatePost />} />
                     <Route path="/post/:id" element={<Post />} />
                 </Routes>
+				<Filler	 />
             </BrowserRouter>
         </div>
     );

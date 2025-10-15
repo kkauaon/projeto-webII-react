@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '../services/api';
 import { useNavigate } from 'react-router-dom';
-import '../App.css';
+import Post from '../Components/Post';
 
 function Home() {
     const [listOfPosts, setOfPosts] = useState([]);
@@ -13,21 +13,8 @@ function Home() {
         });
     }, []);
     return (
-        <div className="App">
-            {listOfPosts.map((value, key) => {
-                return (
-                    <div
-                        className="post"
-                        onClick={() => {
-                            navigate(`/post/${value.id}`);
-                        }}
-                    >
-                        <div className="title"> {value.title} </div>
-                        <div className="body">{value.posttext}</div>
-                        <div className="footer">{value.username}</div>
-                    </div>
-                );
-            })}
+        <div>
+            {listOfPosts.map((value, key) => <Post key={key} data={value} />)}
         </div>
     );
 }
