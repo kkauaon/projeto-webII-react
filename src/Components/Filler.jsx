@@ -1,5 +1,6 @@
 function Filler() {
-	return <div></div>;
+	return <div>
+	</div>;
 }
 
 export default Filler;
