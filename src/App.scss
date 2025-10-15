@@ -184,10 +184,12 @@ hr {
 
 	/* mensagem de erro da validaçao dos campos (span) */
 	.formError::placeholder {
+		transition: color 0.1s ease;
 		color: #ff6666 !important;
 	}
 
 	.formError {
+		transition: color 0.1s ease;
 		color: #ff6666 !important;
 	}
 
