@@ -1,0 +1,44 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    border-bottom: rgb(40, 40, 40) 1px solid;
+
+    .postheader {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    }
+
+	h4 {
+		margin: 0;
+	}
+
+	span {
+		font-size: 14px;
+		color: gray;
+	}
+
+    .title {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .body {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    &:hover {
+        background-color: rgb(3, 3, 3);
+    }
+}

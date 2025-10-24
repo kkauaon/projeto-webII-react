@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import './App.scss';
-import Home from '../src/Pages/Home';
-import CreatePost from './Components/CreatePost';
+import Home from '../src/Pages/Home/Home';
+import CreatePost from './Components/CreatePost/CreatePost';
 import NavBar from './Components/NavBar';
-import Post from './Pages/Post';
+import Post from './Pages/Post/Post';
 import Filler from './Components/Filler';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
                     <Route path="/criarpost" element={<CreatePost />} />
                     <Route path="/post/:id" element={<Post />} />
                 </Routes>
-				<Filler	 />
+                <Filler />
             </BrowserRouter>
         </div>
     );

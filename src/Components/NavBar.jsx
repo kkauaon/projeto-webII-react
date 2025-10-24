@@ -5,7 +5,7 @@ function NavBar() {
     return (
         <div className="navbar">
             <div className="navbarinfo">
-                <img src="x.png" alt="Logo" width={28} />
+                <img src="/x.png" alt="Logo" width={28} />
                 <Link to="/" className="navbarbtn">
                     <IoHomeOutline size={28} color="white" />
                     <p>Página Inicial</p>

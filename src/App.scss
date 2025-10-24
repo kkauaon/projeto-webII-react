@@ -3,9 +3,8 @@
     height: 100vh;
     background-color: black;
     display: flex;
-	justify-content: end;
+    justify-content: end;
     font-family: Arial, Helvetica, sans-serif;
-	border-right: rgb(40, 40, 40)	1px solid;
 
     .navbarinfo {
         margin: 30px;
@@ -34,188 +33,38 @@
             font-weight: 400;
         }
 
-		&.primary {
+        &.primary {
             background-color: #f3f3f3;
             justify-content: center;
 
-			p {
-				color: black;
-				font-weight: 600;
-			}
+            p {
+                color: black;
+                font-weight: 600;
+            }
         }
 
         &:hover {
             background-color: rgb(33, 33, 33);
         }
 
-		&.primary:hover {
-			background-color: #f3f3f3c9;
-		}
+        &.primary:hover {
+            background-color: #f3f3f3c9;
+        }
     }
 }
 
 .loaderContainer {
-	flex: 1;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 20px;
-}
-
-.post {
-	display: flex;
-	flex-direction: column;
-	padding: 10px 20px;
-	transition: background-color 0.3s ease;
-	border-bottom: rgb(40, 40, 40)	1px solid;
-
-	.postheader {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		gap: 10px;
-		margin-bottom: 10px;
-
-		img {
-			width: 40px;
-			height: 40px;
-			border-radius: 50%;
-		}
-	}
-
-	.username {
-		font-weight: bold;
-	}
-
-	.title {
-		font-size: 18px;
-		font-weight: 600;
-	}
-
-	.body {
-		font-size: 16px;
-		font-weight: 400;
-	}
-
-	&:hover {
-		background-color: rgb(3, 3, 3);
-	}
-}
-
-.createPostPage {
-	flex: 1;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 hr {
-	border: none;
-	border-top: 1px solid rgb(40, 40, 40);
-	margin-top: 10px;
-}
-
-.formContainer {
-	display: flex;
-	flex-direction: column;
-	padding: 20px 20px 0px 20px;
-
-	label {
-		font-size: 18px;
-		font-weight: 600;
-	}
-
-	.formImgUser {
-		display: flex;
-		flex-direction: row;
-		align-items: start;
-
-		img {
-			width: 48px;
-			height: 48px;
-			border-radius: 50%;
-			margin-right: 10px;
-		}
-
-		> div {
-			display: flex;
-			flex-direction: column;
-			flex: 1;
-		}
-
-		.espaco {
-			margin-top: 12px;
-		}
-	}
-
-	#inputCreatePost {
-		border: none;
-		background-color: transparent;
-		color: white;
-		font-size: 16px;
-		font-weight: 400;
-		outline: none;
-
-		&::placeholder {
-			color: gray;
-		}
-	}
-
-	#inputCreatePostTitle {
-		@extend #inputCreatePost;
-		font-size: 24px;
-		font-weight: 600;
-	}
-
-	#inputCreatePostTextarea {
-		@extend #inputCreatePost;
-		max-height: 200px;
-		field-sizing: content;
-		flex: 1;
-		resize: none;
-	}
-
-	#inputCreatePostUser {
-		@extend #inputCreatePost;
-		font-size: 16px;
-		font-weight: 400;
-		field-sizing: content;
-		width: fit-content;
-		min-width: 200px;
-		max-width: 400px;
-	}
-
-	/* mensagem de erro da validaçao dos campos (span) */
-	.formError::placeholder {
-		transition: color 0.1s ease;
-		color: #ff6666 !important;
-	}
-
-	.formError {
-		transition: color 0.1s ease;
-		color: #ff6666 !important;
-	}
-
-	.selecionaveis {
-		display: flex;
-		flex-direction: row;
-		gap: 10px;
-	}
-	
-	button {
-		margin-left: auto;
-		margin-top: 10px;
-		padding: 10px 20px;
-		border-radius: 30px;
-		border: none;
-		background-color: #f3f3f3;
-		color: black;
-		font-size: 16px;
-		font-weight: 600;
-		cursor: pointer;
-		transition: background-color 0.3s ease;
-
-		&:hover {
-			background-color: #e0e0e0;
-		}
-	}
+    border: none;
+    border-top: 1px solid rgb(40, 40, 40);
+    margin-top: 10px;
 }
 
 .App {
@@ -224,12 +73,68 @@ hr {
 
     > :nth-child(2) {
         flex-grow: 1;
+		border-right: rgb(40, 40, 40) 1px solid;
+		border-left: rgb(40, 40, 40) 1px solid;
     }
 
-	> :nth-child(3) {
-		width: 30%;
-		height: 100vh;
-		background-color: black;
-		border-left: rgb(40, 40, 40) 1px solid;
-	}
+    > :nth-child(3) {
+        width: 30%;
+        height: 100vh;
+        background-color: black;
+    }
+}
+
+input {
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+
+    &::placeholder {
+        color: gray;
+    }
+}
+
+button {
+    margin-left: auto;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: none;
+    background-color: #f3f3f3;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #e0e0e0;
+    }
+
+    &:disabled {
+        background-color: gray;
+        transition: none;
+        cursor: not-allowed;
+    }
+}
+
+textarea {
+    @extend input;
+    max-height: 200px;
+    field-sizing: content;
+    flex: 1;
+    resize: none;
+}
+
+.espaco {
+    margin-top: 12px;
+}
+
+p {
+    white-space: pre-line;
+	overflow-wrap: break-word; /* permite quebrar palavras grandes */
+	word-wrap: break-word;     /* compatibilidade com browsers antigos */
+	word-break: break-word;    /* quebra mesmo sem espaço */
 }

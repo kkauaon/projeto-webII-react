@@ -4,7 +4,14 @@ const CustomField = ({
     ...props
 }) => (
     <div>
-        <input type="text" {...field} {...props} className={touched[field.name] && errors[field.name] ? 'formError' : ''} />
+        <input
+            type="text"
+            {...field}
+            {...props}
+            className={
+                touched[field.name] && errors[field.name] ? 'formError' : ''
+            }
+        />
     </div>
 );
 

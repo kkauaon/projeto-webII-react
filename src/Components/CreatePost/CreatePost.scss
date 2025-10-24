@@ -1,0 +1,87 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 0px 20px;
+
+    label {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .formImgUser {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+
+        img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        > div {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+    }
+
+    #inputCreatePost {
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-size: 16px;
+        font-weight: 400;
+        outline: none;
+
+        &::placeholder {
+            color: gray;
+        }
+    }
+
+    #inputCreatePostTitle {
+        @extend #inputCreatePost;
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    #inputCreatePostTextarea {
+        @extend #inputCreatePost;
+        max-height: 200px;
+        field-sizing: content;
+        flex: 1;
+        resize: none;
+    }
+
+    #inputCreatePostUser {
+        @extend #inputCreatePost;
+        font-size: 16px;
+        font-weight: 400;
+        field-sizing: content;
+        width: fit-content;
+        min-width: 200px;
+        max-width: 400px;
+    }
+
+    /* mensagem de erro da validaçao dos campos (span) */
+    .formError::placeholder {
+        transition: color 0.1s ease;
+        color: #ff6666 !important;
+    }
+
+    .formError {
+        transition: color 0.1s ease;
+        color: #ff6666 !important;
+    }
+
+    .selecionaveis {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+}
+
+.createPostPage {
+	flex: 1;
+}
