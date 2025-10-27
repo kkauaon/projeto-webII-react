@@ -6,6 +6,7 @@ import './Post.scss';
 import { default as PostComponent } from '../../Components/Post/Post';
 import Loader from '../../Components/Loader/Loader';
 import { timeAgo } from '../../Util/util';
+import Comment from '../../Components/Comment/Comment';
 
 function Post() {
     let { id } = useParams();
@@ -48,9 +49,9 @@ function Post() {
         api.post('/comments', {
             commentBody: newComment,
             PostId: id,
-        }).then(() => {
+        }).then((res) => {
             const commentToAdd = { commentBody: newComment };
-			setComments([...comments, commentToAdd]);
+			setComments([...comments, res.data]);
 			setNewComment('');
         }).catch(err => {
             console.error(err);
@@ -102,16 +103,7 @@ function Post() {
                     comments.map((value, key) => {
                         return (
                             <>
-                                <div key={key} className="comment">
-                                    <img src="/no-photo.png" />
-                                    <div className="commentContainer">
-                                        <div className="commentHeader">
-                                            <h4>Usuário Anônimo</h4>
-                                            <span>{timeAgo(value.createdAt)}</span>
-                                        </div>
-                                        <p>{value.commentBody}</p>
-                                    </div>
-                                </div>
+                                <Comment key={key} data={value} />
                                 <hr />
                             </>
                         );
