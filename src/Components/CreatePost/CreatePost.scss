@@ -50,6 +50,7 @@
         @extend #inputCreatePost;
         max-height: 200px;
         field-sizing: content;
+		width: 100%;
         flex: 1;
         resize: none;
     }

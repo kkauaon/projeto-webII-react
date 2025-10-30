@@ -56,13 +56,17 @@ function CreatePost() {
                                 <hr />
                             </div>
                             <br />
-                            <Field
-                                autoComplete="off"
-                                id="inputCreatePostTitle"
-                                name="title"
-                                placeholder="Título da Postagem"
-                                component={CustomField}
-                            />
+							<div id="inputCreatePostUser">
+								<Field
+									autoComplete="off"
+									id="inputCreatePostTitle"
+									name="title"
+									placeholder="Título da Postagem"
+									component={CustomField}
+								/>		
+								<hr />						
+							</div>
+
                             <br />
                             <Field
                                 component={CustomTextArea}

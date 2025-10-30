@@ -11,6 +11,19 @@ html {
     padding: 20px;
 }
 
+.errorContainer {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+
+	p {
+		color: rgb(255, 137, 137);
+		font-size: 18px;
+	}
+}
+
 hr {
     border: none;
     border-top: 1px solid rgb(40, 40, 40);
@@ -87,4 +100,10 @@ p {
     overflow-wrap: break-word; /* permite quebrar palavras grandes */
     word-wrap: break-word; /* compatibilidade com browsers antigos */
     word-break: break-word; /* quebra mesmo sem espaço */
+}
+
+.formInput {
+	display: flex;
+	flex-direction: row;
+	gap: 8px;
 }
