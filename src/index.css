@@ -3,9 +3,20 @@
 * {
 	margin: 0;
 	font-family: 'Inter', sans-serif;
+}
+
+p, a, h1, h2, h3, h4, h5, h6, span {
 	color: white;
 }
 
 body {
 	background-color: black;
+}
+
+button {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
 }

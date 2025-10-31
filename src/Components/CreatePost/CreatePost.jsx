@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import api from '../../services/api';
@@ -6,86 +6,117 @@ import { useNavigate } from 'react-router-dom';
 import CustomField from '../CustomField';
 import CustomTextArea from '../CustomTextArea';
 import './CreatePost.scss';
+import Loader from '../Loader/Loader';
+import Navbar from '../Navbar/Navbar';
+import Filler from '../Filler';
 
-function CreatePost() {
+function CreatePost({ userId, isPage = false }) {
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+	const [userIdState, setUserIdState] = useState(userId);
+
     const initialValues = {
         title: '',
         posttext: '',
-        username: '',
     };
 
     const validationSchema = Yup.object().shape({
         title: Yup.string().trim().required('Você deve escrever um título!'),
         posttext: Yup.string().trim().required('Digite a mensagem!'),
-        username: Yup.string()
-            .trim()
-            .min(3, 'Seu nome de usuário deve ter no mínimo 3 caracteres!')
-            .max(15, 'Seu nome de usuário deve ter no máximo 15 caracteres!')
-            .required('Você deve se identificar!'),
     });
 
+	useEffect(() => {
+		if (isPage) {
+			api.get('/users/me')
+				.then(response => {
+					setUserIdState(response.data.id);
+				})
+				.catch(err => {
+					console.error(err);
+					setUserIdState(undefined);
+				});
+		}
+	}, []);
+
     const onSubmit = data => {
-        api.post('/posts', data).then(response => {
-            console.log('Post adicionado com sucesso!!!');
-            window.location.reload();
-        });
+        setLoading(true);
+        api.post('/posts', data)
+            .then(response => {
+                setLoading(false);
+                console.log('Post adicionado com sucesso!!!');
+                window.location.reload();
+            })
+            .catch(err => {
+                setLoading(false);
+                console.error(err);
+                setError(
+                    err.response?.data?.error ||
+                        'Ocorreu um erro ao criar o post.'
+                );
+            });
     };
 
     return (
-        <div className="createPostPage">
-            <Formik
-                initialValues={initialValues}
-                onSubmit={onSubmit}
-                validationSchema={validationSchema}
-            >
-                <Form className="formContainer">
-                    <div className="formImgUser">
-                        <img
-                            src="/no-photo.png"
-                        />
-                        <div>
-                            <p className="espaco" />
-                            <div id="inputCreatePostUser">
+        <>
+			{isPage && <Navbar />}
+            <div className="createPostPage">
+                <Formik
+                    initialValues={initialValues}
+                    onSubmit={onSubmit}
+                    validationSchema={validationSchema}
+                >
+                    <Form className="formContainer">
+                        <div className="formImgUser">
+                            <img
+                                src={`https://picsum.photos/seed/${userIdState}/64/64/`}
+                            />
+                            <div>
+                                <div style={{ height: 8 }}></div>
+                                <div id="inputCreatePostUser">
+                                    <Field
+                                        autoComplete="off"
+                                        id="inputCreatePostTitle"
+                                        name="title"
+                                        placeholder="Título da Postagem"
+                                        component={CustomField}
+                                    />
+                                    <hr />
+                                </div>
+
+                                <br />
                                 <Field
+                                    component={CustomTextArea}
                                     autoComplete="off"
-                                    id="inputCreatePostUser"
-                                    name="username"
-                                    placeholder="Seu nome de usuário"
-                                    component={CustomField}
+                                    id="inputCreatePostTextarea"
+                                    name="posttext"
+                                    placeholder="O que está acontecendo?"
                                 />
                                 <hr />
+                                <p className="espaco" />
+                                {error && (
+                                    <p className="errorMessage">{error}</p>
+                                )}
+                                <div className="selecionaveis">
+                                    <button
+                                        disabled={loading}
+                                        style={
+                                            loading
+                                                ? { cursor: 'progress' }
+                                                : undefined
+                                        }
+                                        type="submit"
+                                    >
+                                        Postar
+                                    </button>
+                                </div>
+                                <p className="espaco" />
                             </div>
-                            <br />
-							<div id="inputCreatePostUser">
-								<Field
-									autoComplete="off"
-									id="inputCreatePostTitle"
-									name="title"
-									placeholder="Título da Postagem"
-									component={CustomField}
-								/>		
-								<hr />						
-							</div>
-
-                            <br />
-                            <Field
-                                component={CustomTextArea}
-                                autoComplete="off"
-                                id="inputCreatePostTextarea"
-                                name="posttext"
-                                placeholder="O que está acontecendo?"
-                            />
-                            <hr />
-							<p className="espaco" />
-                            <div className="selecionaveis">
-                                <button type="submit">Postar</button>
-                            </div>
-							<p className="espaco" />
                         </div>
-                    </div>
-                </Form>
-            </Formik>
-        </div>
+                    </Form>
+                </Formik>
+            </div>
+			{isPage && <Filler />}
+        </>
     );
 }
 export default CreatePost;

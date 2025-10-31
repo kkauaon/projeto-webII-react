@@ -6,12 +6,15 @@ import CreatePost from '../../Components/CreatePost/CreatePost';
 import Loader from '../../Components/Loader/Loader';
 import './Home.scss';
 import { IoWarning } from 'react-icons/io5';
+import Filler from '../../Components/Filler';
+import Navbar from '../../Components/Navbar/Navbar';
 
 function Home() {
     const [loading, setLoading] = useState(true);
     const [listOfPosts, setOfPosts] = useState([]);
-	const [hasError, setHasError] = useState(false);
-	
+    const [hasError, setHasError] = useState(false);
+	const [user, setUser] = useState(undefined);
+
     let navigate = useNavigate();
 
     useEffect(() => {
@@ -24,25 +27,42 @@ function Home() {
             .catch(err => {
                 console.error(err);
                 setLoading(false);
-				setHasError(true);
+                setHasError(true);
             });
+
+		api.get('/users/me')
+			.then(response => {
+				setUser(response.data);
+			})
+			.catch(err => {
+				console.error(err);
+				setUser(null);
+			});
     }, []);
+	
     return (
-        <div>
-            <CreatePost />
-            <hr />
-            {loading ? (
-                <div className="loaderContainer">
-                    <Loader size={24} />
-                </div>
-            ) : hasError ? (
-                <div className="errorContainer">
-                    <p>Ocorreu um erro ao carregar os posts.</p>
-                </div>
-            ) : (
-                listOfPosts.map((value, key) => <Post key={key} data={value} isClickable={true} />)
-            )}
-        </div>
+		<>
+			<Navbar />
+			<div id="Home">
+				{user && <CreatePost userId={user?.id} />}
+				<hr />
+				{loading ? (
+					<div className="loaderContainer">
+						<Loader size={24} />
+					</div>
+				) : hasError ? (
+					<div className="errorContainer">
+						<p>Ocorreu um erro ao carregar os posts.</p>
+					</div>
+				) : (
+					listOfPosts.map((value, key) => (
+						<Post key={key} data={value} isClickable={true} />
+					))
+				)}
+			</div>
+			<Filler />
+		</>
+
     );
 }
 

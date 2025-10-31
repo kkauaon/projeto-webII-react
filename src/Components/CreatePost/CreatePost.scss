@@ -8,6 +8,10 @@
         font-weight: 600;
     }
 
+	button {
+		width: 120px;
+	}
+
     .formImgUser {
         display: flex;
         flex-direction: row;
@@ -50,7 +54,7 @@
         @extend #inputCreatePost;
         max-height: 200px;
         field-sizing: content;
-		width: 100%;
+        width: 100%;
         flex: 1;
         resize: none;
     }
@@ -84,5 +88,5 @@
 }
 
 .createPostPage {
-	flex: 1;
+    flex: 1;
 }

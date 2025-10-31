@@ -18,8 +18,8 @@ function Post({ data, isClickable = false }) {
             }
         >
             <div className="postheader">
-                <img src="/no-photo.png" />
-                <h4>{data.username}</h4>
+                <img src={`https://picsum.photos/seed/${data.UserId}/64/64/`} />
+                <h4>{data.User?.username}</h4>
                 <span>{timeAgo(data.createdAt)}</span>
             </div>
             <h2>{data.title}</h2>
