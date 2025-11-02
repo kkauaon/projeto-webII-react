@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Projeto Web II - Frontend (Clone Twitter/X)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este repositório contém o código-fonte do **frontend** para um clone do Twitter/X, desenvolvido como projeto N1 da disciplina de Programação Web II.
 
-## Available Scripts
+A aplicação é uma SPA (Single Page Application) construída com [React](https://react.dev/) (utilizando [Create React App](https://create-react-app.dev/)) e é responsável por consumir a [API backend do projeto](https://github.com/kkauaon/projeto-webII-node) e renderizar a interface do usuário.
 
-In the project directory, you can run:
+## 🚀 Funcionalidades Principais (Frontend)
 
-### `npm start`
+  * **Telas de Autenticação:** Páginas de Registro (`/register`) e Login (`/login`) que se comunicam com a API para gerenciar as sessões do usuário.
+  * **Navegação Protegida:** Utilização do `react-router` para navegação entre páginas e fluxos de autenticação.
+  * **Feed Principal:** Listagem e exibição dos posts (tweets) buscados da API.
+  * **Criação de Conteúdo:** Componentes para criar novos posts e comentários.
+  * **Visualização de Comentários:** Exibição dos comentários associados a cada post.
+  * **Estilização Avançada:** Interface estilizada utilizando SASS para uma melhor organização do CSS.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Stack de Tecnologias
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Este projeto utiliza um stack moderno de JavaScript no frontend:
 
-### `npm test`
+  * **Biblioteca:** [React](https://react.dev/)
+  * **Bootstrap:** [Create React App](https://create-react-app.dev/)
+  * **Roteamento:** [React Router](https://reactrouter.com/)
+  * **Estilização:** [SASS](https://sass-lang.com/)
+  * **Comunicação API:** [Axios](https://axios-http.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚠️ Pré-requisito: Backend Ativo
 
-### `npm run build`
+Para que este frontend funcione corretamente (login, registro, listagem de posts), o **[servidor backend](https://github.com/kkauaon/projeto-webII-node)** deve estar em execução.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Certifique-se de que o backend esteja rodando em `http://localhost:3001` (conforme o README do outro projeto) antes de iniciar este frontend.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚙️ Instalação e Execução
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Siga os passos abaixo para executar o projeto localmente:
 
-### `npm run eject`
+**1. Clone o repositório:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/kkauaon/projeto-webII-react.git
+cd projeto-webII-react
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**2. Instale as dependências:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**3. Execute a aplicação:**
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Após executar, a aplicação React estará disponível em `http://localhost:3000` e se comunicará com o backend na porta `3001`.
