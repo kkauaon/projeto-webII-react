@@ -34,6 +34,11 @@ hr {
     display: flex;
     flex-direction: row;
 
+	> .navbar {
+		width: 30%;
+		height: 100vh;
+	}
+
     > :nth-child(2) {
         flex-grow: 1;
         border-right: rgb(40, 40, 40) 1px solid;
@@ -57,6 +62,39 @@ input {
 
     &::placeholder {
         color: gray;
+    }
+
+	/* --- Estilização da Scrollbar (Clean Dark Mode) --- */
+
+    /* 1. Para Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #555 #1f1f1f; /* polegar / trilha */
+
+    /* 2. Para Chrome, Edge, Safari (WebKit) */
+
+    /* A barra inteira */
+    &::-webkit-scrollbar {
+        width: 8px; /* Largura fina */
+    }
+
+    /* A "trilha" (fundo) */
+    &::-webkit-scrollbar-track {
+        background: #1f1f1f; /* Cinza bem escuro (quase preto) */
+        border-radius: 10px;
+    }
+
+    /* O "polegar" (parte móvel) */
+    &::-webkit-scrollbar-thumb {
+        background-color: #555; /* Cinza médio */
+        border-radius: 10px;
+        
+        /* Truque para fazer o polegar parecer mais fino (padding falso) */
+        border: 2px solid #1f1f1f; 
+    }
+
+    /* "Polegar" ao passar o mouse */
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #777; /* Cinza mais claro */
     }
 }
 
