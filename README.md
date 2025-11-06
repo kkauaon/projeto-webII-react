@@ -20,7 +20,7 @@ A aplicação é uma SPA (Single Page Application) construída com [React](https
 Este projeto utiliza um stack moderno de JavaScript no frontend:
 
   * **Biblioteca:** [React](https://react.dev/)
-  * **Bootstrap:** [Create React App](https://create-react-app.dev/)
+  * **Modelo:** [Create React App](https://create-react-app.dev/)
   * **Roteamento:** [React Router](https://reactrouter.com/)
   * **Estilização:** [SASS](https://sass-lang.com/)
   * **Comunicação API:** [Axios](https://axios-http.com/)
