@@ -1,5 +1,7 @@
 # Projeto Web II - Frontend (Clone Twitter/X)
 
+Repositório do Backend: https://github.com/kkauaon/projeto-webII-node
+
 Este repositório contém o código-fonte do **frontend** para um clone do Twitter/X, desenvolvido como projeto N1 da disciplina de Programação Web II.
 
 A aplicação é uma SPA (Single Page Application) construída com [React](https://react.dev/) (utilizando [Create React App](https://create-react-app.dev/)) e é responsável por consumir a [API backend do projeto](https://github.com/kkauaon/projeto-webII-node) e renderizar a interface do usuário.
