@@ -76,7 +76,7 @@ function Navbar() {
                         className="navbarbtn primary full bottom"
                     >
                         <GoSignOut size={24} color="#000" />
-                        <p>kkauabr</p>
+                        <p>{user?.username}</p>
                     </button>
                 ) : (
                     <Link to="/login" className="navbarbtn primary full bottom">
